@@ -205,3 +205,13 @@ output_path = Path("inexpensive_loans.csv")
 # @TODO: Use the csv library and `csv.writer` to write the header row
 # and each row of `loan.values()` from the `inexpensive_loans` list.
 # YOUR CODE HERE!
+import csv
+with open(output_path,'w',newline='') as csvfile:
+    csvwriter=csv.writer(csvfile)
+   # Writing header:
+    csvwriter.writerow(header)
+    #writing data rows:
+    for item in inexpensive_loans:
+        dictionary_values=item.values()
+        print(dictionary_values)
+        csvwriter.writerow(dictionary_values)
