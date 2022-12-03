@@ -112,9 +112,12 @@ new_loan = {
 #    This function should include parameters for `future_value`, `remaining_months`, and the `annual_discount_rate`
 #    The function should return the `present_value` for the loan.
 # YOUR CODE HERE!
+#Getting the values from the dictionary:
 future_value=new_loan.get("loan_price")
 remaining_months=new_loan.get("remaining_months")
+#Setting the annual discount rate to 0.20 manually
 annual_discount_rate=0.20
+#Defining the function for calculating loan value
 def loan_value(future_value,remaining_months,annual_discount_rate):
     present_value=(future_value/((1+(annual_discount_rate/12))**remaining_months))
     return(present_value)
@@ -122,7 +125,7 @@ def loan_value(future_value,remaining_months,annual_discount_rate):
 # @TODO: Use the function to calculate the present value of the new loan given below.
 #    Use an `annual_discount_rate` of 0.2 for this new loan calculation.
 # YOUR CODE HERE!
-
+#Using the previously written function to calculate the present value for the new_loan
 present_value=loan_value(future_value,remaining_months,annual_discount_rate)
 print(f"The present value of the loan is: {present_value:.2f}")
 
@@ -205,8 +208,9 @@ output_path = Path("inexpensive_loans.csv")
 # @TODO: Use the csv library and `csv.writer` to write the header row
 # and each row of `loan.values()` from the `inexpensive_loans` list.
 # YOUR CODE HERE!
-import csv
+#Using csv to write a file
 with open(output_path,'w',newline='') as csvfile:
+    #Prepare the writer with the correct filepath
     csvwriter=csv.writer(csvfile)
    # Writing header:
     csvwriter.writerow(header)
